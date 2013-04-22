@@ -15,7 +15,7 @@ h5bpRemoteUrl="https://api.github.com/repos/h5bp/html5-boilerplate/zipball/v${h5
 TbBodyMsgPrefix="[TB body]"
 
 TbMsgPrefix="[TB]"
-tbVersion="2.3.0"
+tbVersion="2.3.1"
 tbLocalFile="twitter-bootstrap-v${tbVersion}"
 tbLocalFileZip="${tbLocalFile}.zip"
 tbLocalKey="twitter-bootstrap"
