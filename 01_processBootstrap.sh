@@ -88,7 +88,7 @@ function fnGetH5bp {
     zipSize=$(du -k ${h5bpLocalFileZip} | cut -f1)
 
     if [ "$zipSize" -lt 50 ]; then
-    echo "${h5bpMsgPrefix} $ERR Download failed (download size less the 50k). Exiting."
+        echo "${h5bpMsgPrefix} $ERR Download failed (download size less the 50k). Exiting."
     exit 1
     fi
 
@@ -136,7 +136,9 @@ function processH5bp {
     echo "${h5bpMsgPrefix} Populate results dir '${resultDir}' with required assets."
     cp "${h5bpLocalFile}/apple-touch-icon"* "${resultDir}/assets/favicons/"
     cp "${h5bpLocalFile}/css"/* "${resultDir}/css/"
+    rm "${resultDir}/css/main.css" "${resultDir}/css/normalize.css"
     cp "${h5bpLocalFile}/js"/*.js "${resultDir}/scripts/"
+    rm "${resultDir}/scripts/plugins.js"
     cp "${h5bpLocalFile}/js/vendor"/* "${resultDir}/scripts/libs/"
 } # function
 
