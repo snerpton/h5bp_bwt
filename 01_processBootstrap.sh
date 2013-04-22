@@ -12,6 +12,8 @@ h5bpLocalKey="h5bp-html5-boilerplate"
 #h5bpRemoteUrl="https://nodeload.github.com/h5bp/html5-boilerplate/legacy.zip/v${h5bpVersion}"
 h5bpRemoteUrl="https://api.github.com/repos/h5bp/html5-boilerplate/zipball/v${h5bpVersion}"
 
+bwtFixLocalDir="Assets/Library/BWT"
+
 TbBodyMsgPrefix="[TB body]"
 
 TbMsgPrefix="[TB]"
@@ -140,6 +142,15 @@ function processH5bp {
     cp "${h5bpLocalFile}/js"/*.js "${resultDir}/scripts/"
     rm "${resultDir}/scripts/plugins.js"
     cp "${h5bpLocalFile}/js/vendor"/* "${resultDir}/scripts/libs/"
+
+    # BWT additional files
+    pwd
+    cp "../${bwtFixLocalDir}/site.less" "${resultDir}/scripts/"
+    cp "../${bwtFixLocalDir}/elements.less" "${resultDir}/scripts/"
+    touch "${resultDir}/scripts/siteMixins.less"
+    touch "${resultDir}/scripts/siteBootstrapReset.less";
+    touch "${resultDir}/scripts/siteMainAreas.less";
+
 } # function
 
 
