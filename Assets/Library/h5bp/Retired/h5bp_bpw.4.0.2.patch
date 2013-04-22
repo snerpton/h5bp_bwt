@@ -1,0 +1,52 @@
+--- ../Assets/Library/h5bp/h5bp_bpw.MASTER.html	2013-01-10 10:09:34.000000000 +0000
++++ ../Assets/Library/h5bp/h5bp_bpw.AIMFOR.html	2013-01-10 12:07:15.000000000 +0000
+@@ -9,8 +9,22 @@
+         <title></title>
+         <meta name="description" content="">
+         <meta name="viewport" content="width=device-width">
++        <meta name="HandheldFriendly" content="True">
++        <meta name="MobileOptimized" content="320">
++        <meta http-equiv="cleartype" content="on">
+ 
+         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
++        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicons/apple-touch-icon-144x144-precomposed.png">
++        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/favicons/apple-touch-icon-114x114-precomposed.png">
++        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="  /assets/favicons/apple-touch-icon-72x72-precomposed.png">
++        <link rel="apple-touch-icon-precomposed" href="/assets/favicons/apple-touch-icon-57x57-precomposed.png">
++        <link rel="shortcut icon" href="/assets/favicons/apple-touch-icon.png">
++        
++        <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
++        <!--
++        <meta name="apple-mobile-web-app-capable" content="yes">
++        <meta name="apple-mobile-web-app-status-bar-style" content="black">
++        -->
+ 
+         <link rel="stylesheet" href="css/normalize.css">
+         <link rel="stylesheet" href="css/main.css">
+@@ -24,10 +38,22 @@
+         <!-- Add your site or application content here -->
+         <p>Hello world! This is HTML5 Boilerplate.</p>
+ 
+-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+-        <script src="js/plugins.js"></script>
+-        <script src="js/main.js"></script>
++        <!-- Placed at the end of the document so the pages load faster -->
++        <script src="/scripts/libs/jquery.js"></script>
++        <script src="/scripts/libs/bootstrap-transition.js"></script>
++        <script src="/scripts/libs/bootstrap-alert.js"></script>
++        <script src="/scripts/libs/bootstrap-modal.js"></script>
++        <script src="/scripts/libs/bootstrap-dropdown.js"></script>
++        <script src="/scripts/libs/bootstrap-scrollspy.js"></script>
++        <script src="/scripts/libs/bootstrap-tab.js"></script>
++        <script src="/scripts/libs/bootstrap-tooltip.js"></script>
++        <script src="/scripts/libs/bootstrap-popover.js"></script>
++        <script src="/scripts/libs/bootstrap-button.js"></script>
++        <script src="/scripts/libs/bootstrap-collapse.js"></script>
++        <script src="/scripts/libs/bootstrap-carousel.js"></script>
++        <script src="/scripts/libs/bootstrap-typeahead.js"></script>
++        <script src="/scripts/plugins.js"></script>
++        <script src="/scripts/main.js"></script>
+ 
+         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+         <script>

@@ -5,7 +5,7 @@ set -e
 # START: config
 ################################################################################
 h5bpMsgPrefix="[h5BP]"
-h5bpVersion="4.0.2"
+h5bpVersion="4.2.0"
 h5bpLocalFile="h5bp-html5-boilerplate-v${h5bpVersion}"
 h5bpLocalFileZip="${h5bpLocalFile}.zip"
 h5bpLocalKey="h5bp-html5-boilerplate"
