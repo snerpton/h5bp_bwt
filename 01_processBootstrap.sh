@@ -17,7 +17,7 @@ bwtFixLocalDir="Assets/Library/BWT"
 TbBodyMsgPrefix="[TB body]"
 
 TbMsgPrefix="[TB]"
-tbVersion="2.3.1"
+tbVersion="2.3.2"
 tbLocalFile="twitter-bootstrap-v${tbVersion}"
 tbLocalFileZip="${tbLocalFile}.zip"
 tbLocalKey="twitter-bootstrap"
