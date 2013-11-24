@@ -18,10 +18,10 @@ TbBodyMsgPrefix="[TB body]"
 
 TbMsgPrefix="[TB]"
 tbVersion="2.3.2"
-tbLocalFile="twitter-bootstrap-v${tbVersion}"
+tbLocalFile="twbs-bootstrap-v${tbVersion}"
 tbLocalFileZip="${tbLocalFile}.zip"
-tbLocalKey="twitter-bootstrap"
-tbRemoteUrl="https://api.github.com/repos/twitter/bootstrap/zipball/v${tbVersion}"
+tbLocalKey="twbs-bootstrap"
+tbRemoteUrl="https://api.github.com/repos/twbs/bootstrap/zipball/v${tbVersion}"
 # See below for getting URL of Git url:
 #http://stackoverflow.com/questions/13106269/how-can-i-download-the-most-recent-version-of-a-github-project-to-use-in-a-bash
 
@@ -68,6 +68,7 @@ function fnMkDirStructure {
     fnMkDir "$resultDir/css"
     fnMkDir "$resultDir/scripts"
     fnMkDir "$resultDir/scripts/less"
+    fnMkDir "$resultDir/scripts/less/tb"
     fnMkDir "$resultDir/scripts/libs"
     fnMkDir "$resultDir/scripts/libs/tb"
     echo "Created directory structure OK."
@@ -128,6 +129,16 @@ function processH5bp {
             echo "${h5bpMsgPrefix} $ERR Diff exited code 2. Exiting."; exit 1;
         fi
     }
+    echo "${h5bpMsgPrefix} Comparing the patch file we've just generated to the reference file."
+    diff -u ../Assets/Library/h5bp/h5bp_bpw.patch h5bp_bpw.patch > /tmp/$(basename $0).txt || {
+        # Exit 0 = no differences, 1 = differences, and >1 = errors.
+        if [ $? -eq 1 ]; then
+            echo "${h5bpMsgPrefix} $ERR Diff exited code 1. Exiting."; exit 1;
+        fi
+        if [ $? -eq 2 ]; then
+            echo "${h5bpMsgPrefix} $ERR Diff exited code 2. Exiting."; exit 1;
+        fi
+    }
 
     cp "${h5bpLocalFile}/index.html" ${resultDir}/
 
@@ -145,11 +156,13 @@ function processH5bp {
 
     # BWT additional files
     pwd
-    cp "../${bwtFixLocalDir}/site.less" "${resultDir}/scripts/"
-    cp "../${bwtFixLocalDir}/elements.less" "${resultDir}/scripts/"
-    touch "${resultDir}/scripts/siteMixins.less"
-    touch "${resultDir}/scripts/siteBootstrapReset.less";
-    touch "${resultDir}/scripts/siteMainAreas.less";
+    cp "../${bwtFixLocalDir}/bwt-site.less" "${resultDir}/scripts/less/"
+    cp "../${bwtFixLocalDir}/bwt-imported.less" "${resultDir}/scripts/less/"
+    cp "../${bwtFixLocalDir}/elements.less" "${resultDir}/scripts/less/"
+    cp "../${bwtFixLocalDir}/bwt-bootstrap-reset.less" "${resultDir}/scripts/less/bwt-bootstrap-reset.less";
+    cp "../${bwtFixLocalDir}/bwt-main-areas.less" "${resultDir}/scripts/less/bwt-main-areas.less";
+    cp "../${bwtFixLocalDir}/bwt-mixins.less" "${resultDir}/scripts/less/bwt-mixins.less"
+    cp "../${bwtFixLocalDir}/bwt-site.js" "${resultDir}/scripts/bwt-site.js"
 
 } # function
 
@@ -248,7 +261,7 @@ function processTwitterBootstrap {
 
     echo "${TbMsgPrefix} Populate results dir '${resultDir}' with required assets..."
     cp -R "${tbLocalFile}/js/"* "${resultDir}/scripts/libs/tb/"
-    cp -R "${tbLocalFile}/less/"* "${resultDir}/scripts/less/"
+    cp -R "${tbLocalFile}/less/"* "${resultDir}/scripts/less/tb/"
 } # function
 
 

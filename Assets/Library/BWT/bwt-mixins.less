@@ -1,0 +1,54 @@
+/* *****************************************************************************
+ * FILE: 
+ * 
+ * bwt-mixins.less
+ * 
+ *
+ *
+ * DESCRIPTION:
+ *
+ * Standard BWT mixins should be placed at the top this file. Site specific 
+ * mixins should be places at the bottom of this file
+ *
+ */
+ 
+ 
+  
+/*
+ * SECTION: Standard BWT mixins
+ */
+ 
+.bwt-box-shadow-inset-outset(@inset, @outset) {
+    -webkit-box-shadow:@inset, @outset;
+    -moz-box-shadow:@inset, @outset;
+    box-shadow:@inset, @outset;
+}
+
+.bwt-transition(@element:all, @duration:0.2s, @ease:ease-out) {
+  -webkit-transition: @element @duration @ease;
+  -moz-transition: @element @duration @ease;
+  -o-transition: @element @duration @ease;
+  transition: @element @duration @ease;
+}
+
+.bwt-opacity-gradient-horiz (@origin: left, @colorR:255, @colorG:0, @colorB:0, @alpha: 1) {
+    background-image: -webkit-linear-gradient(@origin, rgba(@colorR,@colorG,@colorB,0.0), rgba(@colorR,@colorG,@colorB,@alpha));
+    background-image: -moz-linear-gradient(@origin, rgba(@colorR,@colorG,@colorB,0.0), rgba(@colorR,@colorG,@colorB,@alpha));
+    background-image: -o-linear-gradient(@origin, rgba(@colorR,@colorG,@colorB,0.0), rgba(@colorR,@colorG,@colorB,@alpha));
+    background-image: -ms-linear-gradient(@origin, rgba(@colorR,@colorG,@colorB,0.0), rgba(@colorR,@colorG,@colorB,@alpha));
+    background-image: linear-gradient(@origin, rgba(@colorR,@colorG,@colorB,0.0), rgba(@colorR,@colorG,@colorB,@alpha));
+}
+
+.bwt-opacity-gradient-vert (@origin: top, @colorR:255, @colorG:0, @colorB:0, @alpha: 1) {
+    background-image: -webkit-linear-gradient(@origin, rgba(@colorR,@colorG,@colorB,0.0), rgba(@colorR,@colorG,@colorB,@alpha));
+    background-image: -moz-linear-gradient(@origin, rgba(@colorR,@colorG,@colorB,0.0), rgba(@colorR,@colorG,@colorB,@alpha));
+    background-image: -o-linear-gradient(@origin, rgba(@colorR,@colorG,@colorB,0.0), rgba(@colorR,@colorG,@colorB,@alpha));
+    background-image: -ms-linear-gradient(@origin, rgba(@colorR,@colorG,@colorB,0.0), rgba(@colorR,@colorG,@colorB,@alpha));
+    background-image: linear-gradient(@origin, rgba(@colorR,@colorG,@colorB,0.0), rgba(@colorR,@colorG,@colorB,@alpha));
+}
+
+
+
+/*
+ * SECTION: Site specific mixins
+ */
