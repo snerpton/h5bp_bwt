@@ -66,9 +66,9 @@ function fnMkDirStructure {
     fnMkDir "$resultDir/assets"
     fnMkDir "$resultDir/assets/favicons"
     fnMkDir "$resultDir/css"
+    fnMkDir "$resultDir/less"
+    fnMkDir "$resultDir/less/tb"
     fnMkDir "$resultDir/scripts"
-    fnMkDir "$resultDir/scripts/less"
-    fnMkDir "$resultDir/scripts/less/tb"
     fnMkDir "$resultDir/scripts/libs"
     fnMkDir "$resultDir/scripts/libs/tb"
     echo "Created directory structure OK."
@@ -156,12 +156,12 @@ function processH5bp {
 
     # BWT additional files
     pwd
-    cp "../${bwtFixLocalDir}/bwt-site.less" "${resultDir}/scripts/less/"
-    cp "../${bwtFixLocalDir}/bwt-imported.less" "${resultDir}/scripts/less/"
-    cp "../${bwtFixLocalDir}/elements.less" "${resultDir}/scripts/less/"
-    cp "../${bwtFixLocalDir}/bwt-bootstrap-reset.less" "${resultDir}/scripts/less/bwt-bootstrap-reset.less";
-    cp "../${bwtFixLocalDir}/bwt-main-areas.less" "${resultDir}/scripts/less/bwt-main-areas.less";
-    cp "../${bwtFixLocalDir}/bwt-mixins.less" "${resultDir}/scripts/less/bwt-mixins.less"
+    cp "../${bwtFixLocalDir}/bwt-site.less" "${resultDir}/less/"
+    cp "../${bwtFixLocalDir}/bwt-imported.less" "${resultDir}/less/"
+    cp "../${bwtFixLocalDir}/elements.less" "${resultDir}/less/"
+    cp "../${bwtFixLocalDir}/bwt-bootstrap-reset.less" "${resultDir}/less/bwt-bootstrap-reset.less";
+    cp "../${bwtFixLocalDir}/bwt-main-areas.less" "${resultDir}/less/bwt-main-areas.less";
+    cp "../${bwtFixLocalDir}/bwt-mixins.less" "${resultDir}/less/bwt-mixins.less"
     cp "../${bwtFixLocalDir}/bwt-site.js" "${resultDir}/scripts/bwt-site.js"
 
 } # function
@@ -261,7 +261,7 @@ function processTwitterBootstrap {
 
     echo "${TbMsgPrefix} Populate results dir '${resultDir}' with required assets..."
     cp -R "${tbLocalFile}/js/"* "${resultDir}/scripts/libs/tb/"
-    cp -R "${tbLocalFile}/less/"* "${resultDir}/scripts/less/tb/"
+    cp -R "${tbLocalFile}/less/"* "${resultDir}/less/tb/"
 } # function
 
 

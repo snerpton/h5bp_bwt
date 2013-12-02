@@ -1,5 +1,5 @@
 --- ../Assets/Library/h5bp/h5bp_bpw.MASTER.html	2013-11-24 22:00:36.000000000 +0000
-+++ ../Assets/Library/h5bp/h5bp_bpw.AIMFOR.html	2013-12-02 10:40:30.000000000 +0000
++++ ../Assets/Library/h5bp/h5bp_bpw.AIMFOR.html	2013-12-02 11:27:31.000000000 +0000
 @@ -8,13 +8,29 @@
          <meta http-equiv="X-UA-Compatible" content="IE=edge">
          <title></title>
@@ -27,8 +27,8 @@
 -        <link rel="stylesheet" href="css/main.css">
 -        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 +        <script src="./scripts/libs/modernizr-2.6.2.min.js"></script>
-+        <link href="./scripts/less/tb/bootstrap.less" rel="stylesheet" type="text/css" media="screen" />
-+        <link href="./scripts/less/bwt-site.less" rel="stylesheet" type="text/css" media="screen" />
++        <link href="./less/tb/bootstrap.less" rel="stylesheet" type="text/css" media="screen" />
++        <link href="./less/bwt-site.less" rel="stylesheet" type="text/css" media="screen" />
 +        
      </head>
      <body>
