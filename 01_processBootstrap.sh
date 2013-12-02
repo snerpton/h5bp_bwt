@@ -17,7 +17,7 @@ bwtFixLocalDir="Assets/Library/BWT"
 TbBodyMsgPrefix="[TB body]"
 
 TbMsgPrefix="[TB]"
-tbVersion="2.3.2"
+tbVersion="3.0.2"
 tbLocalFile="twbs-bootstrap-v${tbVersion}"
 tbLocalFileZip="${tbLocalFile}.zip"
 tbLocalKey="twbs-bootstrap"
