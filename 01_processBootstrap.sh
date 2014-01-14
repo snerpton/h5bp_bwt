@@ -12,7 +12,9 @@ h5bpLocalKey="h5bp-html5-boilerplate"
 #h5bpRemoteUrl="https://nodeload.github.com/h5bp/html5-boilerplate/legacy.zip/v${h5bpVersion}"
 h5bpRemoteUrl="https://api.github.com/repos/h5bp/html5-boilerplate/zipball/v${h5bpVersion}"
 
-bwtFixLocalDir="Assets/Library/BWT"
+assetLib="/Assets/Library"
+bwtFixLocalDir="${assetLib}/BWT"
+libNuGet="${assetLib}/NuGet"
 
 TbBodyMsgPrefix="[TB body]"
 
@@ -24,6 +26,8 @@ tbLocalKey="twbs-bootstrap"
 tbRemoteUrl="https://api.github.com/repos/twbs/bootstrap/zipball/v${tbVersion}"
 # See below for getting URL of Git url:
 #http://stackoverflow.com/questions/13106269/how-can-i-download-the-most-recent-version-of-a-github-project-to-use-in-a-bash
+
+NuGetMsgPrefix="[NuGet]"
 
 ERR="***ERROR***:" # Error message prefix
 
@@ -65,6 +69,8 @@ function fnMkDirStructure {
     fnMkDir $resultDir
     fnMkDir "$resultDir/assets"
     fnMkDir "$resultDir/assets/favicons"
+    fnMkDir "$resultDir/assets/fonts"
+    fnMkDir "$resultDir/assets/images"
     fnMkDir "$resultDir/css"
     fnMkDir "$resultDir/less"
     fnMkDir "$resultDir/less/libs"
@@ -72,6 +78,7 @@ function fnMkDirStructure {
     fnMkDir "$resultDir/scripts"
     fnMkDir "$resultDir/scripts/libs"
     fnMkDir "$resultDir/scripts/libs/tb"
+    fnMkDir "$resultDir/Views"
     echo "Created directory structure OK."
 } # function
 
@@ -157,13 +164,13 @@ function processH5bp {
 
     # BWT additional files
     pwd
-    cp "../${bwtFixLocalDir}/bwt-site.less" "${resultDir}/less/"
-    cp "../${bwtFixLocalDir}/bwt-imported.less" "${resultDir}/less/"
-    cp "../${bwtFixLocalDir}/elements.less" "${resultDir}/less/libs/"
     cp "../${bwtFixLocalDir}/bwt-bootstrap-reset.less" "${resultDir}/less/bwt-bootstrap-reset.less";
+    cp "../${bwtFixLocalDir}/bwt-imported.less" "${resultDir}/less/"
     cp "../${bwtFixLocalDir}/bwt-main-areas.less" "${resultDir}/less/bwt-main-areas.less";
     cp "../${bwtFixLocalDir}/bwt-mixins.less" "${resultDir}/less/bwt-mixins.less"
     cp "../${bwtFixLocalDir}/bwt-site.js" "${resultDir}/scripts/bwt-site.js"
+    cp "../${bwtFixLocalDir}/bwt-site.less" "${resultDir}/less/"
+    cp "../${bwtFixLocalDir}/elements.less" "${resultDir}/less/libs/"
 
 } # function
 
@@ -266,6 +273,30 @@ function processTwitterBootstrap {
 } # function
 
 
+function processNuGet {
+
+    echo "--------------------------------------------------------------------------------"
+    echo "${NuGetMsgPrefix} Converting for NuGet"
+
+    fnChangeToWorkingDir
+
+    echo "${NuGetMsgPrefix} Placing dummy file in empty directories..."
+    cp "../${libNuGet}/dummy.txt" "${resultDir}/assets/favicons/"
+    cp "../${libNuGet}/dummy.txt" "${resultDir}/assets/fonts/"
+    cp "../${libNuGet}/dummy.txt" "${resultDir}/assets/images/"
+
+    echo "${NuGetMsgPrefix} Creating master template..."
+    cp "../${libNuGet}/bwt-master.cshtml" "${resultDir}/Views/"
+    cat "${resultDir}/index.html" >> "${resultDir}/Views/bwt-master.cshtml"
+    perl -pi -e 's/\.\//\//g' "${resultDir}/Views/bwt-master.cshtml"
+    rm "${resultDir}/index.html"
+
+    cp "../${assetLib}/readme.md" "${resultDir}/"
+
+#mv "${resultDir}/index.html" "${resultDir}/Views/index.cshtml" || { echo "${TbMsgPrefix} $ERR Unable to rename unziped HTML5 dir to something std. Exiting."; exit 1; }
+
+
+} # function
 
 
 
@@ -288,6 +319,9 @@ fnGetTwitterBootstrap
 
 cd ${startDir}
 processTwitterBootstrap
+
+cd ${startDir}
+processNuGet
 
 
 
