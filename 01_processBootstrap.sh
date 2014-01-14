@@ -17,7 +17,7 @@ bwtFixLocalDir="Assets/Library/BWT"
 TbBodyMsgPrefix="[TB body]"
 
 TbMsgPrefix="[TB]"
-tbVersion="3.0.2"
+tbVersion="3.0.3"
 tbLocalFile="twbs-bootstrap-v${tbVersion}"
 tbLocalFileZip="${tbLocalFile}.zip"
 tbLocalKey="twbs-bootstrap"
@@ -67,7 +67,8 @@ function fnMkDirStructure {
     fnMkDir "$resultDir/assets/favicons"
     fnMkDir "$resultDir/css"
     fnMkDir "$resultDir/less"
-    fnMkDir "$resultDir/less/tb"
+    fnMkDir "$resultDir/less/libs"
+    fnMkDir "$resultDir/less/libs/tb"
     fnMkDir "$resultDir/scripts"
     fnMkDir "$resultDir/scripts/libs"
     fnMkDir "$resultDir/scripts/libs/tb"
@@ -158,7 +159,7 @@ function processH5bp {
     pwd
     cp "../${bwtFixLocalDir}/bwt-site.less" "${resultDir}/less/"
     cp "../${bwtFixLocalDir}/bwt-imported.less" "${resultDir}/less/"
-    cp "../${bwtFixLocalDir}/elements.less" "${resultDir}/less/"
+    cp "../${bwtFixLocalDir}/elements.less" "${resultDir}/less/libs/"
     cp "../${bwtFixLocalDir}/bwt-bootstrap-reset.less" "${resultDir}/less/bwt-bootstrap-reset.less";
     cp "../${bwtFixLocalDir}/bwt-main-areas.less" "${resultDir}/less/bwt-main-areas.less";
     cp "../${bwtFixLocalDir}/bwt-mixins.less" "${resultDir}/less/bwt-mixins.less"
@@ -261,7 +262,7 @@ function processTwitterBootstrap {
 
     echo "${TbMsgPrefix} Populate results dir '${resultDir}' with required assets..."
     cp -R "${tbLocalFile}/js/"* "${resultDir}/scripts/libs/tb/"
-    cp -R "${tbLocalFile}/less/"* "${resultDir}/less/tb/"
+    cp -R "${tbLocalFile}/less/"* "${resultDir}/less/libs/tb/"
 } # function
 
 
