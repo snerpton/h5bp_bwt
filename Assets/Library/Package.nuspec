@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>BWT.TB-HTML5BP</id>
+    <version>1.0.0</version>
+    <authors>Chris Ashton</authors>
+    <owners>Chris Ashton</owners>
+    <licenseUrl>http://blueprintwebtech.com/licence</licenseUrl>
+    <projectUrl>http://blueprintwebtech.com/project</projectUrl>
+    <iconUrl>http://blueprintwebtech.com/iconurl</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Blueprint Web Tech's standard Twitter Bootstrap and HTML5 Boilerplate package. A master template is created to test Bootstrap with.</description>
+    <releaseNotes>TwitterBootstrap v3.0.3 and HTML5 Boilerplate v4.3.0.</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>bwt twitterbootstrap html5bp</tags>
+   <!--
+    <dependencies>
+      <dependency id="SampleDependency" version="1.0" />
+    </dependencies>
+    -->
+  </metadata>
+</package>

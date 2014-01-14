@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Patch help. To be run from the 'Working' directory
+# diff -u ../Assets/Library/h5bp/h5bp_bpw.MASTER.html ../Assets/Library/h5bp/h5bp_bpw.AIMFOR.html > ../Assets/Library/h5bp/h5bp_bpw.patch
+#
+
 set -e
 ################################################################################
 # START: config
@@ -291,9 +295,17 @@ function processNuGet {
     perl -pi -e 's/\.\//\//g' "${resultDir}/Views/bwt-master.cshtml"
     rm "${resultDir}/index.html"
 
-    cp "../${assetLib}/readme.md" "${resultDir}/"
 
-#mv "${resultDir}/index.html" "${resultDir}/Views/index.cshtml" || { echo "${TbMsgPrefix} $ERR Unable to rename unziped HTML5 dir to something std. Exiting."; exit 1; }
+
+
+    mkdir "NuGet"
+    mkdir "NuGet/content"
+    mkdir "NuGet/libs"
+    mkdir "NuGet/tools"
+    cp -R "${resultDir}/"* "NuGet/content/"
+
+    cp "../${assetLib}/readme.md" "NuGet/readme.txt"
+    cp "../${assetLib}/Package.nuspec" "NuGet/"
 
 
 } # function
