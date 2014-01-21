@@ -31,9 +31,15 @@ tbRemoteUrl="https://api.github.com/repos/twbs/bootstrap/zipball/v${tbVersion}"
 # See below for getting URL of Git url:
 #http://stackoverflow.com/questions/13106269/how-can-i-download-the-most-recent-version-of-a-github-project-to-use-in-a-bash
 
-NuGetMsgPrefix="[NuGet]"
 
 ERR="***ERROR***:" # Error message prefix
+
+
+# NuGet Packaging
+nuGetMsgPrefix="[NuGet]"
+nuGetPkgReleaseNotes="TwitterBootstrap v${tbVersion} and HTML5 Boilerplate v${h5bpVersion}."
+nuGetPkgReleaseNotes="${nuGetPkgReleaseNotes}"
+nuGetPkgVersion="1.0.3"
 
 # Probably don't need to touch these
 workingDir="Working"
@@ -170,7 +176,7 @@ function processH5bp {
     pwd
     cp "../${bwtFixLocalDir}/bwt-bootstrap-reset.less" "${resultDir}/less/bwt-bootstrap-reset.less";
     cp "../${bwtFixLocalDir}/bwt-imported.less" "${resultDir}/less/"
-    cp "../${bwtFixLocalDir}/bwt-main-areas.less" "${resultDir}/less/bwt-main-areas.less";
+    cp "../${bwtFixLocalDir}/bwt-layout.less" "${resultDir}/less/bwt-layout.less";
     cp "../${bwtFixLocalDir}/bwt-mixins.less" "${resultDir}/less/bwt-mixins.less"
     cp "../${bwtFixLocalDir}/bwt-site.js" "${resultDir}/scripts/bwt-site.js"
     cp "../${bwtFixLocalDir}/bwt-site.less" "${resultDir}/less/"
@@ -280,16 +286,16 @@ function processTwitterBootstrap {
 function processNuGet {
 
     echo "--------------------------------------------------------------------------------"
-    echo "${NuGetMsgPrefix} Converting for NuGet"
+    echo "${nuGetMsgPrefix} Converting for NuGet"
 
     fnChangeToWorkingDir
 
-    echo "${NuGetMsgPrefix} Placing dummy file in empty directories..."
+    echo "${nuGetMsgPrefix} Placing dummy file in empty directories..."
     cp "../${libNuGet}/dummy.txt" "${resultDir}/assets/favicons/"
     cp "../${libNuGet}/dummy.txt" "${resultDir}/assets/fonts/"
     cp "../${libNuGet}/dummy.txt" "${resultDir}/assets/images/"
 
-    echo "${NuGetMsgPrefix} Creating master template..."
+    echo "${nuGetMsgPrefix} Creating master template..."
     cp "../${libNuGet}/bwt-master.cshtml" "${resultDir}/Views/"
     cat "${resultDir}/index.html" >> "${resultDir}/Views/bwt-master.cshtml"
     perl -pi -e 's/\.\//\//g' "${resultDir}/Views/bwt-master.cshtml"
@@ -306,7 +312,8 @@ function processNuGet {
 
     cp "../${assetLib}/readme.md" "NuGet/readme.txt"
     cp "../${assetLib}/Package.nuspec" "NuGet/"
-
+    perl -pi -e "s/\[\[NUGET\_PKG\_VERSION\]\]/${nuGetPkgVersion}/g" "NuGet/Package.nuspec"
+    perl -pi -e "s/\[\[NUGET\_PKG\_RELEASE\_NOTES\]\]/${nuGetPkgReleaseNotes}/g" "NuGet/Package.nuspec"
 
 } # function
 
