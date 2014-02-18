@@ -23,7 +23,7 @@ libNuGet="${assetLib}/NuGet"
 TbBodyMsgPrefix="[TB body]"
 
 TbMsgPrefix="[TB]"
-tbVersion="3.0.3"
+tbVersion="3.1.1"
 tbLocalFile="twbs-bootstrap-v${tbVersion}"
 tbLocalFileZip="${tbLocalFile}.zip"
 tbLocalKey="twbs-bootstrap"
@@ -39,7 +39,7 @@ ERR="***ERROR***:" # Error message prefix
 nuGetMsgPrefix="[NuGet]"
 nuGetPkgReleaseNotes="TwitterBootstrap v${tbVersion} and HTML5 Boilerplate v${h5bpVersion}."
 nuGetPkgReleaseNotes="${nuGetPkgReleaseNotes}"
-nuGetPkgVersion="1.0.3"
+nuGetPkgVersion="1.0.4"
 
 # Probably don't need to touch these
 workingDir="Working"
@@ -174,10 +174,14 @@ function processH5bp {
 
     # BWT additional files
     pwd
-    cp "../${bwtFixLocalDir}/bwt-bootstrap-reset.less" "${resultDir}/less/bwt-bootstrap-reset.less";
+    cp "../${bwtFixLocalDir}/bwt-bootstrap-reset.less" "${resultDir}/less/";
+    cp "../${bwtFixLocalDir}/bwt-forms.less" "${resultDir}/less/"
     cp "../${bwtFixLocalDir}/bwt-imported.less" "${resultDir}/less/"
-    cp "../${bwtFixLocalDir}/bwt-layout.less" "${resultDir}/less/bwt-layout.less";
-    cp "../${bwtFixLocalDir}/bwt-mixins.less" "${resultDir}/less/bwt-mixins.less"
+    cp "../${bwtFixLocalDir}/bwt-layout.less" "${resultDir}/less/";
+    cp "../${bwtFixLocalDir}/bwt-misc.less" "${resultDir}/less/";
+    cp "../${bwtFixLocalDir}/bwt-mixins.less" "${resultDir}/less/"
+    cp "../${bwtFixLocalDir}/bwt-navigation-main.less" "${resultDir}/less/"
+    cp "../${bwtFixLocalDir}/bwt-panels.less" "${resultDir}/less/"
     cp "../${bwtFixLocalDir}/bwt-site.js" "${resultDir}/scripts/bwt-site.js"
     cp "../${bwtFixLocalDir}/bwt-site.less" "${resultDir}/less/"
     cp "../${bwtFixLocalDir}/elements.less" "${resultDir}/less/libs/"
