@@ -23,7 +23,7 @@ libNuGet="${assetLib}/NuGet"
 TbBodyMsgPrefix="[TB body]"
 
 TbMsgPrefix="[TB]"
-tbVersion="3.1.1"
+tbVersion="3.2.0"
 tbLocalFile="twbs-bootstrap-v${tbVersion}"
 tbLocalFileZip="${tbLocalFile}.zip"
 tbLocalKey="twbs-bootstrap"
@@ -39,7 +39,7 @@ ERR="***ERROR***:" # Error message prefix
 nuGetMsgPrefix="[NuGet]"
 nuGetPkgReleaseNotes="TwitterBootstrap v${tbVersion} and HTML5 Boilerplate v${h5bpVersion}."
 nuGetPkgReleaseNotes="${nuGetPkgReleaseNotes}"
-nuGetPkgVersion="1.0.4"
+nuGetPkgVersion="1.0.5"
 
 # Probably don't need to touch these
 workingDir="Working"
@@ -82,9 +82,9 @@ function fnMkDirStructure {
     fnMkDir "$resultDir/assets/fonts"
     fnMkDir "$resultDir/assets/images"
     fnMkDir "$resultDir/css"
-    fnMkDir "$resultDir/less"
-    fnMkDir "$resultDir/less/libs"
-    fnMkDir "$resultDir/less/libs/tb"
+    fnMkDir "$resultDir/css/less"
+    fnMkDir "$resultDir/css/less/libs"
+    fnMkDir "$resultDir/css/less/libs/tb"
     fnMkDir "$resultDir/scripts"
     fnMkDir "$resultDir/scripts/libs"
     fnMkDir "$resultDir/scripts/libs/tb"
@@ -174,17 +174,17 @@ function processH5bp {
 
     # BWT additional files
     pwd
-    cp "../${bwtFixLocalDir}/bwt-bootstrap-reset.less" "${resultDir}/less/";
-    cp "../${bwtFixLocalDir}/bwt-forms.less" "${resultDir}/less/"
-    cp "../${bwtFixLocalDir}/bwt-imported.less" "${resultDir}/less/"
-    cp "../${bwtFixLocalDir}/bwt-layout.less" "${resultDir}/less/";
-    cp "../${bwtFixLocalDir}/bwt-misc.less" "${resultDir}/less/";
-    cp "../${bwtFixLocalDir}/bwt-mixins.less" "${resultDir}/less/"
-    cp "../${bwtFixLocalDir}/bwt-navigation-main.less" "${resultDir}/less/"
-    cp "../${bwtFixLocalDir}/bwt-panels.less" "${resultDir}/less/"
+    cp "../${bwtFixLocalDir}/bwt-bootstrap-reset.less" "${resultDir}/css/less/";
+    cp "../${bwtFixLocalDir}/bwt-forms.less" "${resultDir}/css/less/"
+    cp "../${bwtFixLocalDir}/bwt-imported.less" "${resultDir}/css/less/"
+    cp "../${bwtFixLocalDir}/bwt-layout.less" "${resultDir}/css/less/";
+    cp "../${bwtFixLocalDir}/bwt-misc.less" "${resultDir}/css/less/";
+    cp "../${bwtFixLocalDir}/bwt-mixins.less" "${resultDir}/css/less/"
+    cp "../${bwtFixLocalDir}/bwt-navigation-main.less" "${resultDir}/css/less/"
+    cp "../${bwtFixLocalDir}/bwt-panels.less" "${resultDir}/css/less/"
     cp "../${bwtFixLocalDir}/bwt-site.js" "${resultDir}/scripts/bwt-site.js"
-    cp "../${bwtFixLocalDir}/bwt-site.less" "${resultDir}/less/"
-    cp "../${bwtFixLocalDir}/elements.less" "${resultDir}/less/libs/"
+    cp "../${bwtFixLocalDir}/bwt-site.less" "${resultDir}/css/less/"
+    cp "../${bwtFixLocalDir}/elements.less" "${resultDir}/css/less/libs/"
 
 } # function
 
@@ -283,7 +283,7 @@ function processTwitterBootstrap {
 
     echo "${TbMsgPrefix} Populate results dir '${resultDir}' with required assets..."
     cp -R "${tbLocalFile}/js/"* "${resultDir}/scripts/libs/tb/"
-    cp -R "${tbLocalFile}/less/"* "${resultDir}/less/libs/tb/"
+    cp -R "${tbLocalFile}/less/"* "${resultDir}/css/less/libs/tb/"
 } # function
 
 

@@ -1,6 +1,6 @@
 --- ../Assets/Library/h5bp/h5bp_bpw.MASTER.html	2013-11-24 22:00:36.000000000 +0000
-+++ ../Assets/Library/h5bp/h5bp_bpw.AIMFOR.html	2014-06-04 12:15:47.000000000 +0100
-@@ -8,13 +8,40 @@
++++ ../Assets/Library/h5bp/h5bp_bpw.AIMFOR.html	2014-07-28 10:58:26.000000000 +0100
+@@ -8,13 +8,68 @@
          <meta http-equiv="X-UA-Compatible" content="IE=edge">
          <title></title>
          <meta name="description" content="">
@@ -42,10 +42,38 @@
 +        <script src="./scripts/libs/modernizr-2.6.2.min.js"></script>
 +        <link href="./less/bwt-site.less" rel="stylesheet" type="text/css" media="screen" />
 +        
++        <!-- Load jQuery, UI, Validate, and Unobtrusive to satisfy Umbraco Contour: 
++             Create one bundle that is comprised of multiple javascript files. -->
++        
++        
++        <!-- Load javascript (bootstrap and project specific scripts): 
++             Create one bundle that is comprised of multiple javascript files -->
++		<script type="text/javascript">
++			Modernizr.load([
++				//'/scripts/libs/jquery-1.10.2.min.js', // load JS in normal manner so it is available for Contour to use
++				//'/scripts/libs/tb/affix.js',
++				//'/scripts/libs/tb/alert.js',
++				//'/scripts/libs/tb/button.js',
++				//'/scripts/libs/tb/carousel.js',
++				//'/scripts/libs/tb/collapse.js',
++				//'/scripts/libs/tb/dropdown.js',
++				//'/scripts/libs/tb/modal.js',
++				//'/scripts/libs/tb/scrollspy.js',
++				//'/scripts/libs/tb/tab.js',
++				//'/scripts/libs/tb/tooltip.js',
++				//'/scripts/libs/tb/transition.js',
++				//'//platform.twitter.com/widgets.js',
++				//'/scripts/libs/jquery.expander.min.js',
++				//'/scripts/libs/swipeme.min.js',
++				//'/scripts/libs/swipeme.mouse.min.js',
++				//'/scripts/libs/fastclick.min.js',
++				//'/scripts/bwt-site.js'
++			])
++        </script>
      </head>
      <body>
          <!--[if lt IE 7]>
-@@ -24,12 +51,24 @@
+@@ -24,19 +79,5 @@
          <!-- Add your site or application content here -->
          <p>Hello world! This is HTML5 Boilerplate.</p>
  
@@ -53,31 +81,15 @@
 -        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
 -        <script src="js/plugins.js"></script>
 -        <script src="js/main.js"></script>
-+        <!-- Placed at the end of the document so the pages load faster -->
-+        <script src="./scripts/libs/jquery-1.10.2.min.js"></script>
-+        <script src="./scripts/libs/tb/affix.js"></script>
-+		<script src="./scripts/libs/tb/alert.js"></script>
-+		<script src="./scripts/libs/tb/button.js"></script>
-+		<script src="./scripts/libs/tb/carousel.js"></script>
-+		<script src="./scripts/libs/tb/collapse.js"></script>
-+		<script src="./scripts/libs/tb/dropdown.js"></script>
-+		<script src="./scripts/libs/tb/modal.js"></script>
-+		<!--<script src="./scripts/libs/tb/popover.js"></script>-->
-+		<script src="./scripts/libs/tb/scrollspy.js"></script>
-+		<script src="./scripts/libs/tb/tab.js"></script>
-+		<script src="./scripts/libs/tb/tooltip.js"></script>
-+		<script src="./scripts/libs/tb/transition.js"></script>
-+        <script src="./scripts/bwt-site.js"></script>
- 
-         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-+        <!--
-         <script>
-             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-@@ -38,5 +77,6 @@
-             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-             ga('create','UA-XXXXX-X');ga('send','pageview');
-         </script>
-+        -->
+-
+-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+-        <script>
+-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+-            e.src='//www.google-analytics.com/analytics.js';
+-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+-            ga('create','UA-XXXXX-X');ga('send','pageview');
+-        </script>
      </body>
  </html>
