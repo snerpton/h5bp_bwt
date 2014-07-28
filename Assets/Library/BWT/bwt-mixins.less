@@ -47,7 +47,28 @@
     background-image: linear-gradient(@origin, rgba(@colorR,@colorG,@colorB,0.0), rgba(@colorR,@colorG,@colorB,@alpha));
 }
 
-
+.bwt-std-fadein(@effect: fadein, @time: 0.6s) {
+    animation: @effect @time;
+    -moz-animation: @effect @time;
+    -webkit-animation: @effect @time;
+    -o-animation: @effect @time;
+}
+@keyframes fadein {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {opacity:0;}
+    to {opacity:1;}
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {opacity:0;}
+    to {opacity:1;}
+}
+@-o-keyframes fadein { /* Opera */
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
 
 /*
  * SECTION: Site specific mixins

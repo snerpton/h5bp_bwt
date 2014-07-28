@@ -174,10 +174,16 @@ function processH5bp {
 
     # BWT additional files
     pwd
+    cp "../${bwtFixLocalDir}/bwt-banner.less" "${resultDir}/css/less/"
     cp "../${bwtFixLocalDir}/bwt-bootstrap-reset.less" "${resultDir}/css/less/";
+    cp "../${bwtFixLocalDir}/bwt-buttons.less" "${resultDir}/css/less/"
+    cp "../${bwtFixLocalDir}/bwt-fonts.less" "${resultDir}/css/less/"
+    cp "../${bwtFixLocalDir}/bwt-footer.less" "${resultDir}/css/less/"
     cp "../${bwtFixLocalDir}/bwt-forms.less" "${resultDir}/css/less/"
+    cp "../${bwtFixLocalDir}/bwt-header.less" "${resultDir}/css/less/"
     cp "../${bwtFixLocalDir}/bwt-imported.less" "${resultDir}/css/less/"
     cp "../${bwtFixLocalDir}/bwt-layout.less" "${resultDir}/css/less/";
+    cp "../${bwtFixLocalDir}/bwt-lists.less" "${resultDir}/css/less/";
     cp "../${bwtFixLocalDir}/bwt-misc.less" "${resultDir}/css/less/";
     cp "../${bwtFixLocalDir}/bwt-mixins.less" "${resultDir}/css/less/"
     cp "../${bwtFixLocalDir}/bwt-navigation-main.less" "${resultDir}/css/less/"
