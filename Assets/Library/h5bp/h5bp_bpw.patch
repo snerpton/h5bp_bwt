@@ -1,5 +1,5 @@
 --- ../Assets/Library/h5bp/h5bp_bpw.MASTER.html	2013-11-24 22:00:36.000000000 +0000
-+++ ../Assets/Library/h5bp/h5bp_bpw.AIMFOR.html	2014-07-28 13:15:44.000000000 +0100
++++ ../Assets/Library/h5bp/h5bp_bpw.AIMFOR.html	2014-08-27 09:14:03.000000000 +0100
 @@ -8,13 +8,68 @@
          <meta http-equiv="X-UA-Compatible" content="IE=edge">
          <title></title>
@@ -12,23 +12,23 @@
  
 -        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 +		<!-- Favicon: General -->
-+		<link rel="shortcut icon" sizes="32x32" href="./assets/favicons/apple-touch-icon.png">
++		<link rel="shortcut icon" sizes="32x32" href="/assets/favicons/apple-touch-icon.png">
 +		
 +		<!-- Favicon: iOS -->
-+		<link rel="apple-touch-icon" sizes="76x76" href="./assets/favicons/touch-icon-ipad.png">
-+		<link rel="apple-touch-icon" sizes="120x120" href="./assets/favicons/touch-icon-iphone-retina.png">
-+		<link rel="apple-touch-icon" sizes="152x152" href="./assets/favicons/touch-icon-ipad-retina.png">
++		<link rel="apple-touch-icon" sizes="76x76" href="/assets/favicons/touch-icon-ipad.png">
++		<link rel="apple-touch-icon" sizes="120x120" href="/assets/favicons/touch-icon-iphone-retina.png">
++		<link rel="apple-touch-icon" sizes="152x152" href="/assets/favicons/touch-icon-ipad-retina.png">
 +		
 +		<!-- Favicon: Win8 tile -->
-+		<meta name="msapplication-TileImage" content="./assets/favicons/favicon-144.png">
++		<meta name="msapplication-TileImage" content="/assets/favicons/favicon-144.png">
 +		<meta name="msapplication-TileColor" content="#000000"/>
 +		<meta name="application-name" content="Name" />
 +		
 +		<!-- Favicon: IE11 tiles -->
-+		<meta name="msapplication-square70x70logo" content="./assets/favicons/tile-tiny.png"/>
-+		<meta name="msapplication-square150x150logo" content="./assets/favicons/tile-square.png"/>
-+		<meta name="msapplication-wide310x150logo" content="./assets/favicons/tile-wide.png"/>
-+		<meta name="msapplication-square310x310logo" content="./assets/favicons/tile-large.png"/>
++		<meta name="msapplication-square70x70logo" content="/assets/favicons/tile-tiny.png"/>
++		<meta name="msapplication-square150x150logo" content="/assets/favicons/tile-square.png"/>
++		<meta name="msapplication-wide310x150logo" content="/assets/favicons/tile-wide.png"/>
++		<meta name="msapplication-square310x310logo" content="/assets/favicons/tile-large.png"/>
 +        
 +        <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
 +        <!--
@@ -39,8 +39,8 @@
 -        <link rel="stylesheet" href="css/normalize.css">
 -        <link rel="stylesheet" href="css/main.css">
 -        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-+        <script src="./scripts/libs/modernizr-2.6.2.min.js"></script>
-+        <link href="./css/less/bwt-site.less" rel="stylesheet" type="text/css" media="screen" />
++        <script src="/scripts/libs/modernizr-2.6.2.min.js"></script>
++        <link href="/css/less/bwt-site.less" rel="stylesheet" type="text/css" media="screen" />
 +        
 +        <!-- Load jQuery, UI, Validate, and Unobtrusive to satisfy Umbraco Contour: 
 +             Create one bundle that is comprised of multiple javascript files. -->
@@ -73,9 +73,28 @@
      </head>
      <body>
          <!--[if lt IE 7]>
-@@ -24,19 +79,5 @@
+@@ -23,20 +78,24 @@
+ 
          <!-- Add your site or application content here -->
          <p>Hello world! This is HTML5 Boilerplate.</p>
++		<div class="container">
++		    <div class="row">
++		        <div class="col-sm-1"><span>X</span></div>
++		        <div class="col-sm-1"><span>X</span></div>
++		        <div class="col-sm-1"><span>X</span></div>
++		        <div class="col-sm-1"><span>X</span></div>
++		
++		        <div class="col-sm-1"><span>X</span></div>
++		        <div class="col-sm-1"><span>X</span></div>
++		        <div class="col-sm-1"><span>X</span></div>
++		        <div class="col-sm-1"><span>X</span></div>
++		
++		        <div class="col-sm-1"><span>X</span></div>
++		        <div class="col-sm-1"><span>X</span></div>
++		        <div class="col-sm-1"><span>X</span></div>
++		        <div class="col-sm-1"><span>X</span></div>
++		    </div>
++		</div>        
  
 -        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 -        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
