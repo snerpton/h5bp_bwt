@@ -10,8 +10,8 @@ set -e
 ################################################################################
 h5bpMsgPrefix="[h5BP]"
 h5bpVersion="4.3.0"
-h5bpLocalFile="h5bp-html5-boilerplate-v${h5bpVersion}"
-h5bpLocalFileZip="${h5bpLocalFile}.zip"
+h5bpLocalDir="h5bp-html5-boilerplate-v${h5bpVersion}"
+h5bpLocalFileZip="${h5bpLocalDir}.zip"
 h5bpLocalKey="h5bp-html5-boilerplate"
 #h5bpRemoteUrl="https://nodeload.github.com/h5bp/html5-boilerplate/legacy.zip/v${h5bpVersion}"
 h5bpRemoteUrl="https://api.github.com/repos/h5bp/html5-boilerplate/zipball/v${h5bpVersion}"
@@ -110,7 +110,7 @@ function fnGetH5bp {
 
     if [ "$zipSize" -lt 50 ]; then
         echo "${h5bpMsgPrefix} $ERR Download failed (download size less the 50k). Exiting."
-    exit 1
+        exit 1
     fi
 
     # Unzip download an move to a directory structure convenient to our process
@@ -118,7 +118,10 @@ function fnGetH5bp {
     unzip -q ${h5bpLocalFileZip}
 
     mv ${h5bpLocalFileZip} "${deteteDir}"/ || { echo "${h5bpMsgPrefix} $ERR Unable move ../${h5bpLocalFileZip} to dir '${deteteDir}'. Exiting."; exit 1; }
-    mv ${h5bpLocalKey}* ${h5bpLocalFile} || { echo "${h5bpMsgPrefix} $ERR Unable to rename unziped HTML5 dir to something std. Exiting."; exit 1; }
+    mv ${h5bpLocalKey}* ${h5bpLocalDir} || { echo "${h5bpMsgPrefix} $ERR Unable to rename unziped HTML5 dir to something std. Exiting."; exit 1; }
+
+
+
 } # function
 
 
@@ -130,7 +133,7 @@ function processH5bp {
 
     fnChangeToWorkingDir
     h5bpMyLibVersionMd5=$(md5 -q "../Assets/Library/h5bp/h5bp_bpw.MASTER.html")
-    h5bpDownloadVersionMd5=$(md5 -q "${h5bpLocalFile}/index.html")
+    h5bpDownloadVersionMd5=$(md5 -q "${h5bpLocalDir}/index.html")
 
     [ "$h5bpMyLibVersionMd5" == "$h5bpDownloadVersionMd5" ] || {
         echo "${h5bpMsgPrefix} Hash 1: $h5bpMyLibVersionMd5"
@@ -158,19 +161,19 @@ function processH5bp {
         fi
     }
 
-    cp "${h5bpLocalFile}/index.html" ${resultDir}/
+    cp "${h5bpLocalDir}/index.html" ${resultDir}/
 
     echo "${h5bpMsgPrefix} Patching downloaded h5bp index.html with the patch we have created."
     patch "${resultDir}/index.html" < "h5bp_bpw.patch"
     mv "h5bp_bpw.patch" ${deteteDir}/ || { echo "${h5bpMsgPrefix} $ERR Unable move 'h5bp_bpw.patch' to '${deteteDir}'. Exiting."; exit 1; }
 
     echo "${h5bpMsgPrefix} Populate results dir '${resultDir}' with required assets."
-    cp "${h5bpLocalFile}/apple-touch-icon"* "${resultDir}/assets/favicons/"
-    cp "${h5bpLocalFile}/css"/* "${resultDir}/css/"
+    cp "${h5bpLocalDir}/apple-touch-icon"* "${resultDir}/assets/favicons/"
+    cp "${h5bpLocalDir}/css"/* "${resultDir}/css/"
     rm "${resultDir}/css/main.css" "${resultDir}/css/normalize.css"
-    cp "${h5bpLocalFile}/js"/*.js "${resultDir}/scripts/"
+    cp "${h5bpLocalDir}/js"/*.js "${resultDir}/scripts/"
     rm "${resultDir}/scripts/plugins.js"
-    cp "${h5bpLocalFile}/js/vendor"/* "${resultDir}/scripts/libs/"
+    cp "${h5bpLocalDir}/js/vendor"/* "${resultDir}/scripts/libs/"
 
     # BWT additional files
     pwd
@@ -263,7 +266,7 @@ function processTwitterBootstrap {
 
     fnChangeToWorkingDir
     #h5bpMyLibVersionMd5=$(md5 -q "../Assets/Library/h5bp/h5bp_bpw.MASTER.html")
-    #h5bpDownloadVersionMd5=$(md5 -q "${h5bpLocalFile}/index.html")
+    #h5bpDownloadVersionMd5=$(md5 -q "${h5bpLocalDir}/index.html")
 
     #[ "$h5bpMyLibVersionMd5" == "$h5bpDownloadVersionMd5" ] || {
     #echo "Hash 1: $h5bpMyLibVersionMd5"
@@ -281,7 +284,7 @@ function processTwitterBootstrap {
     #fi
     #}
 
-    #cp "${h5bpLocalFile}/index.html" ${resultDir}/
+    #cp "${h5bpLocalDir}/index.html" ${resultDir}/
 
     #echo "Patching downloaded h5bp index.html with the patch we have created..."
     #patch "${resultDir}/index.html" < "h5bp_bpw.patch"
