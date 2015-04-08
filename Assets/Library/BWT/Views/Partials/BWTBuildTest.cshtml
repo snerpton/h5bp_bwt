@@ -1,0 +1,46 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <script>
+                    document.addEventListener("DOMContentLoaded", function (event) {
+                        if (typeof jQuery == 'undefined') {
+                            console.log("jQuery not installed, or isn't wired up.");
+                        }
+                        else {
+                            $('.test-jquery').html('<span class="build-test-good">v' + jQuery.fn.jquery + '</span>');
+                        }
+                    });
+            </script>
+
+
+            <h1>Package tests:</h1>
+            <table>
+                <tr>
+                    <td class="test-modernizr"><span></span></td>
+                    <td>Modernizr installed and wired up</td>
+                </tr>
+                <tr>
+                    <td class="test-jquery"><span class="build-test-bad">Not installed</span></td>
+                    <td>jQuery installed and wired up</td>
+                </tr>
+                <tr>
+                    <td><i class="glyphicon glyphicon-glass build-test-good"></i></td>
+                    <td>Glyphicon halflings (wine glass displayed)</td>
+                </tr>
+                <tr>
+                    <td><i class="glyphicons glyphicons-fire build-test-good"></i></td>
+                    <td>Glyphicons Pro base (fire displayed)</td>
+                </tr>
+                <tr>
+                    <td><i class="filetypes filetypes-txt build-test-good"></i></td>
+                    <td>Glyphicons Pro filetypes (.txt file displayed)</td>
+                </tr>
+                <tr>
+                    <td><i class="social social-google-plus build-test-good"></i></td>
+                    <td>Glyphicons Pro social (Google+ displayed)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<hr />

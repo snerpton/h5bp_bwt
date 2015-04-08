@@ -1,0 +1,113 @@
+﻿/* *****************************************************************************
+ * FILE: 
+ *
+ * bwt-build-helpers.less
+ * 
+ * 
+ *
+ * DESCRIPTION:
+ *
+ * Don't delete these styles on go live, just remove this file from bwt-imported.less
+ */
+ 
+ 
+ 
+/* 
+ * SECTION: Package built correctly helpers
+ */
+.build-test-good { color:green; }
+.build-test-bad { color: red; }
+
+.no-js .test-modernizr span { display:block; width:10px; height:10px; background:red;  }
+.js .test-modernizr span { display:block; width:10px; height:10px; background:green;  }
+
+
+
+
+/* 
+ * SECTION: Indicate screen size to visitor to aid bug descriptions
+ */
+body #sizeHelper{
+    display: block;
+	position: fixed;
+	z-index: 1000;
+	bottom: 5px;
+	right: 5px;
+	width: 15px;
+	height: 20px;
+    border: 1px solid grey;
+
+    &::before {
+        .size-helper-text;
+    }
+}
+.size-helper-text {
+    position: absolute;
+    top: -1px;
+    left: -81px;
+    display: block;
+    width: 80px;
+    padding-left: 3px;
+    background: grey;
+}
+
+@media (max-width: @screen-xs-max) {
+	body #sizeHelper{
+		/* RED */
+		background-color: #FF6961;
+
+        &::before {
+            color: #FF6961;
+            content: 'screen-xs';
+        }
+	}
+}
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+	body #sizeHelper{
+		/* YELLOW */
+		background-color: #FDFD96;
+
+        &::before {
+            color: #FDFD96;
+            content: 'screen-sm';
+        }
+	}
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+	body #sizeHelper{
+		/* PINK */
+		background-color: #FFD1DC;
+
+        &::before {
+            color: #FFD1DC;
+            content: 'screen-md';
+        }
+	}
+}
+@media (min-width: @screen-lg-min) {
+    body #sizeHelper {
+        /* GREEN */
+        background-color: #77DD77;
+
+        &::before {
+            color: #77DD77;
+            content: 'screen-lg';
+        }
+    }
+}
+
+/*
+ * SECTION: Temporary style that may be useful whilst building the Twitter Bootstrap grid.
+ */ 
+.container {
+    background: #eaeaea;
+}
+
+.row {
+    background: #5fb8eb;
+}
+
+.col-sm-1 span {
+    display: block;
+    background: #127ec5;
+}

@@ -1,0 +1,23 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    <name> -- <role> -- <twitter>
+
+# THANKS
+
+    <name>
+
+# TECHNOLOGY COLOPHON
+
+	AngularJS
+	CSS3
+	HTML5
+	IIS
+	jQuery
+	Modernizr
+	SQL Server
+	Twitter Bootstrap
+    Umbraco
+    WebAPI

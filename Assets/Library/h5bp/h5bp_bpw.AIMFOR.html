@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!doctype html>
+<html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title></title>
         <meta name="description" content="">
         <meta name="keywords" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="HandheldFriendly" content="True">
-        <meta name="MobileOptimized" content="320">
-        <meta http-equiv="cleartype" content="on">
-
+        
 		<!-- Favicon: General -->
 		<link rel="shortcut icon" sizes="32x32" href="/assets/favicons/apple-touch-icon.png">
 		
@@ -32,70 +26,97 @@
 		<meta name="msapplication-square150x150logo" content="/assets/favicons/tile-square.png"/>
 		<meta name="msapplication-wide310x150logo" content="/assets/favicons/tile-wide.png"/>
 		<meta name="msapplication-square310x310logo" content="/assets/favicons/tile-large.png"/>
-        
-        <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
-        <!--
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        -->
 
-        <script src="/scripts/libs/modernizr-2.6.2.min.js"></script>
-        <link href="/css/less/bwt-site.less" rel="stylesheet" type="text/css" media="screen" />
+        <script src="/scripts/libs/modernizr-2.8.3.min.js"></script>
         
-        <!-- Load jQuery, UI, Validate, and Unobtrusive to satisfy Umbraco Contour: 
-             Create one bundle that is comprised of multiple javascript files. -->
+        @* 
+       		Load jQuery, UI, Validate, and Unobtrusive to satisfy Umbraco Contour: 
+       		Create one bundle that is comprised of multiple javascript files. 
+          
+          	siteCss bundle should include:
+			<styleBundle virtualPath="~/bundles/siteCss" disableMinification="True">
+				<include virtualPath="~/css/less/bwt-site.less" />
+			</styleBundle>  
+        *@
+        @*@Styles.Render("~/bundles/siteCss")*@
         
-        
-        <!-- Load javascript (bootstrap and project specific scripts): 
-             Create one bundle that is comprised of multiple javascript files -->
+        @* 
+        	Load javascript (bootstrap and project specific scripts): 
+       		Create one bundle that is comprised of multiple javascript files 
+            
+            siteScripts bundle should include:
+			<scriptBundle virtualPath="~/bundles/siteScripts" disableMinification="True">
+				<include virtualPath="~/scripts/libs/jquery-X.YY.ZZ.min.js" />
+				<include virtualPath="~/scripts/libs/slimmage.js" />
+			</scriptBundle>
+        *@    
+        @*@Scripts.Render("~/bundles/siteScripts")*@     
+             
+             
+      	@*
+      		Load non-essential scripts in the background using Modernizer
+      	
+      		siteScriptsBgLoad bundle should include:
+      	
+			<scriptBundle virtualPath="~/bundles/siteScriptsBgLoad" disableMinification="True">
+				<!--<include virtualPath="~/scripts/libs/tb/swipeme.min.js" />-->
+				<!--<include virtualPath="~/scripts/libs/tb/fastclick.min.js" />-->
+				<include virtualPath="~/scripts/libs/tb/affix.js" />
+				<include virtualPath="~/scripts/libs/tb/alert.js" />
+				<include virtualPath="~/scripts/libs/tb/button.js" />
+				<include virtualPath="~/scripts/libs/tb/carousel.js" />
+				<include virtualPath="~/scripts/libs/tb/collapse.js" />
+				<include virtualPath="~/scripts/libs/tb/dropdown.js" />
+				<include virtualPath="~/scripts/libs/tb/modal.js" />
+				<include virtualPath="~/scripts/libs/tb/scrollspy.js" />
+				<include virtualPath="~/scripts/libs/tb/tab.js" />
+				<include virtualPath="~/scripts/libs/tb/tooltip.js" />
+				<include virtualPath="~/scripts/libs/tb/popover.js" />
+				<include virtualPath="~/scripts/libs/tb/transition.js" />
+				<include virtualPath="~/scripts/libs/css_browser_selector.js" />
+				<include virtualPath="~/scripts/bwt-site.js" />
+			</scriptBundle>        	
+      	*@       
+             
+             
 		<script type="text/javascript">
 			Modernizr.load([
-				//'/scripts/libs/jquery-1.10.2.min.js', // load JS in normal manner so it is available for Contour to use
-				//'/scripts/libs/tb/affix.js',
-				//'/scripts/libs/tb/alert.js',
-				//'/scripts/libs/tb/button.js',
-				//'/scripts/libs/tb/carousel.js',
-				//'/scripts/libs/tb/collapse.js',
-				//'/scripts/libs/tb/dropdown.js',
-				//'/scripts/libs/tb/modal.js',
-				//'/scripts/libs/tb/scrollspy.js',
-				//'/scripts/libs/tb/tab.js',
-				//'/scripts/libs/tb/tooltip.js',
-				//'/scripts/libs/tb/transition.js',
-				//'//platform.twitter.com/widgets.js',
-				//'/scripts/libs/jquery.expander.min.js',
-				//'/scripts/libs/swipeme.min.js',
-				//'/scripts/libs/swipeme.mouse.min.js',
-				//'/scripts/libs/fastclick.min.js',
-				//'/scripts/bwt-site.js'
+				@*'@Scripts.Url("~/bundles/siteScriptsBgLoad")'*@
 			])
-        </script>
+        </script>             
+                 
+        <!-- Google Analytics -->         
+               
+        
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div id="sizeHelper"></div>
+    <!-- Add your site or application content here -->
+    <p>Hello world! This is HTML5 Boilerplate.</p>
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-		<div class="container">
-		    <div class="row">
-		        <div class="col-sm-1"><span>X</span></div>
-		        <div class="col-sm-1"><span>X</span></div>
-		        <div class="col-sm-1"><span>X</span></div>
-		        <div class="col-sm-1"><span>X</span></div>
-		
-		        <div class="col-sm-1"><span>X</span></div>
-		        <div class="col-sm-1"><span>X</span></div>
-		        <div class="col-sm-1"><span>X</span></div>
-		        <div class="col-sm-1"><span>X</span></div>
-		
-		        <div class="col-sm-1"><span>X</span></div>
-		        <div class="col-sm-1"><span>X</span></div>
-		        <div class="col-sm-1"><span>X</span></div>
-		        <div class="col-sm-1"><span>X</span></div>
-		    </div>
-		</div>        
+    @Html.Partial("BWTBuildTest")
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1"><span>X</span></div>
+            <div class="col-sm-1"><span>X</span></div>
+            <div class="col-sm-1"><span>X</span></div>
+            <div class="col-sm-1"><span>X</span></div>
+
+            <div class="col-sm-1"><span>X</span></div>
+            <div class="col-sm-1"><span>X</span></div>
+            <div class="col-sm-1"><span>X</span></div>
+            <div class="col-sm-1"><span>X</span></div>
+
+            <div class="col-sm-1"><span>X</span></div>
+            <div class="col-sm-1"><span>X</span></div>
+            <div class="col-sm-1"><span>X</span></div>
+            <div class="col-sm-1"><span>X</span></div>
+        </div>
+    </div>  
 
     </body>
 </html>

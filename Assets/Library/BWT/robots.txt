@@ -1,0 +1,1 @@
+User-agent: *   # match all bots# Disallow: /   # keep them out. Remove on go live!# The following directories are all linked to in the frontend, but we probably don't want them indexed.Disallow: /cssDisallow: /CssDisallow: /lessDisallow: /LessDisallow: /mediaDisallow: /MediaDisallow: /scriptsDisallow: /ScriptsDisallow: /umbracoDisallow: /Umbraco
