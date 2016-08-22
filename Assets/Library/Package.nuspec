@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>BWT.Umbraco.TB-HTML5BP</id>
+    <id>Odin.Umbraco.TB-HTML5BP</id>
     <version>[[NUGET_PKG_VERSION]]</version>
     <authors>Chris Ashton</authors>
     <owners>Chris Ashton</owners>

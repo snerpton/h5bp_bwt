@@ -24,7 +24,7 @@ libNuGet="${assetLib}/NuGet"
 TbBodyMsgPrefix="[TB body]"
 
 TbMsgPrefix="[TB]"
-tbVersion="3.3.4"
+tbVersion="3.3.6"
 tbLocalFile="twbs-bootstrap-v${tbVersion}"
 tbLocalFileZip="${tbLocalFile}.zip"
 tbLocalKey="twbs-bootstrap"
@@ -42,7 +42,7 @@ ERR="***ERROR***:" # Error message prefix
 nuGetMsgPrefix="[NuGet]"
 nuGetPkgReleaseNotes="TwitterBootstrap v${tbVersion} and HTML5 Boilerplate v${h5bpVersion}."
 nuGetPkgReleaseNotes="${nuGetPkgReleaseNotes}"
-nuGetPkgVersion="1.0.6"
+nuGetPkgVersion="1.0.7"
 
 # Probably don't need to touch these
 workingDir="Working"
